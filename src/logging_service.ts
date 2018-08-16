@@ -27,21 +27,21 @@ export class LoggingService implements ILoggingService {
 
   // TODO: Add claim checks as soon as necessary claims have been defined.
   public async getLogsForProcessInstance(identity: IIdentity,
-                                         processModelId: string,
                                          correlationId: string,
+                                         processModelId: string,
                                          logLevel?: LogLevel): Promise<Array<LogEntry>> {
-    return this.loggingRepository.getLogsForProcessInstance(processModelId, correlationId, logLevel);
+    return this.loggingRepository.getLogsForProcessInstance(correlationId, processModelId, logLevel);
   }
 
-  public async writeLogForProcessModel(processModelId: string, correlationId: string, logLevel: LogLevel, message: string): Promise<void> {
-    await this.loggingRepository.writeLogForProcessModel(processModelId, correlationId, logLevel, message);
+  public async writeLogForProcessModel(correlationId: string, processModelId: string, logLevel: LogLevel, message: string): Promise<void> {
+    await this.loggingRepository.writeLogForProcessModel(correlationId, processModelId, logLevel, message);
   }
 
-  public async writeLogForFlowNodeInstance(processModelId: string,
-                                           correlationId: string,
+  public async writeLogForFlowNodeInstance(correlationId: string,
+                                           processModelId: string,
                                            flowNodeInstanceId: string,
                                            logLevel: LogLevel,
                                            message: string): Promise<void> {
-    await this.loggingRepository.writeLogForFlowNodeInstance(processModelId, correlationId, flowNodeInstanceId, logLevel, message);
+    await this.loggingRepository.writeLogForFlowNodeInstance(correlationId, processModelId, flowNodeInstanceId, logLevel, message);
   }
 }
