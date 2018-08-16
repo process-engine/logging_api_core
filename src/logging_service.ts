@@ -33,15 +33,20 @@ export class LoggingService implements ILoggingService {
     return this.loggingRepository.getLogsForProcessInstance(correlationId, processModelId, logLevel);
   }
 
-  public async writeLogForProcessInstance(correlationId: string, processModelId: string, logLevel: LogLevel, message: string): Promise<void> {
-    await this.loggingRepository.writeLogForProcessInstance(correlationId, processModelId, logLevel, message);
+  public async writeLogForProcessInstance(correlationId: string,
+                                          processModelId: string,
+                                          logLevel: LogLevel,
+                                          message: string,
+                                          timestamp: Date): Promise<void> {
+    await this.loggingRepository.writeLogForProcessInstance(correlationId, processModelId, logLevel, message, timestamp);
   }
 
   public async writeLogForFlowNodeInstance(correlationId: string,
                                            processModelId: string,
                                            flowNodeInstanceId: string,
                                            logLevel: LogLevel,
-                                           message: string): Promise<void> {
-    await this.loggingRepository.writeLogForFlowNodeInstance(correlationId, processModelId, flowNodeInstanceId, logLevel, message);
+                                           message: string,
+                                           timestamp: Date): Promise<void> {
+    await this.loggingRepository.writeLogForFlowNodeInstance(correlationId, processModelId, flowNodeInstanceId, logLevel, message, timestamp);
   }
 }
