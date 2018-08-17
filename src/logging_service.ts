@@ -21,32 +21,29 @@ export class LoggingService implements ILoggingService {
   }
 
   // TODO: Add claim checks as soon as necessary claims have been defined.
-  public async getLogsForCorrelation(identity: IIdentity, correlationId: string, logLevel?: LogLevel): Promise<Array<LogEntry>> {
-    return this.loggingRepository.getLogsForCorrelation(correlationId, logLevel);
+  public async getLogsForCorrelation(identity: IIdentity, correlationId: string): Promise<Array<LogEntry>> {
+    return this.loggingRepository.getLogsForCorrelation(correlationId);
   }
 
   // TODO: Add claim checks as soon as necessary claims have been defined.
-  public async getLogsForProcessInstance(identity: IIdentity,
-                                         correlationId: string,
-                                         processModelId: string,
-                                         logLevel?: LogLevel): Promise<Array<LogEntry>> {
-    return this.loggingRepository.getLogsForProcessInstance(correlationId, processModelId, logLevel);
+  public async getLogsForProcessModel(identity: IIdentity, correlationId: string, processModelId: string): Promise<Array<LogEntry>> {
+    return this.loggingRepository.getLogsForProcessModel(correlationId, processModelId);
   }
 
-  public async writeLogForProcessInstance(correlationId: string,
-                                          processModelId: string,
-                                          logLevel: LogLevel,
-                                          message: string,
-                                          timestamp: Date): Promise<void> {
-    await this.loggingRepository.writeLogForProcessInstance(correlationId, processModelId, logLevel, message, timestamp);
+  public async writeLogForProcessModel(correlationId: string,
+                                       processModelId: string,
+                                       logLevel: LogLevel,
+                                       message: string,
+                                       timestamp: Date): Promise<void> {
+    await this.loggingRepository.writeLogForProcessModel(correlationId, processModelId, logLevel, message, timestamp);
   }
 
-  public async writeLogForFlowNodeInstance(correlationId: string,
-                                           processModelId: string,
-                                           flowNodeInstanceId: string,
-                                           logLevel: LogLevel,
-                                           message: string,
-                                           timestamp: Date): Promise<void> {
-    await this.loggingRepository.writeLogForFlowNodeInstance(correlationId, processModelId, flowNodeInstanceId, logLevel, message, timestamp);
+  public async writeLogForFlowNode(correlationId: string,
+                                   processModelId: string,
+                                   flowNodeInstanceId: string,
+                                   logLevel: LogLevel,
+                                   message: string,
+                                   timestamp: Date): Promise<void> {
+    await this.loggingRepository.writeLogForFlowNode(correlationId, processModelId, flowNodeInstanceId, logLevel, message, timestamp);
   }
 }
