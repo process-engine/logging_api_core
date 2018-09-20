@@ -1,8 +1,8 @@
-import {ILoggingApiService, ILoggingRepository, LogEntry, LogLevel} from '@process-engine/logging_api_contracts';
+import {ILoggingApi, ILoggingRepository, LogEntry, LogLevel} from '@process-engine/logging_api_contracts';
 
 import {IIAMService, IIdentity} from '@essential-projects/iam_contracts';
 
-export class LoggingApiService implements ILoggingApiService {
+export class LoggingApiService implements ILoggingApi {
 
   private _iamService: IIAMService;
   private _loggingRepository: ILoggingRepository;
