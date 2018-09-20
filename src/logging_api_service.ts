@@ -21,13 +21,8 @@ export class LoggingApiService implements ILoggingApi {
   }
 
   // TODO: Add claim checks as soon as necessary claims have been defined.
-  public async readLogForCorrelation(identity: IIdentity, correlationId: string): Promise<Array<LogEntry>> {
-    return this.loggingRepository.readLogForCorrelation(correlationId);
-  }
-
-  // TODO: Add claim checks as soon as necessary claims have been defined.
-  public async readLogForProcessModel(identity: IIdentity, correlationId: string, processModelId: string): Promise<Array<LogEntry>> {
-    return this.loggingRepository.readLogForProcessModel(correlationId, processModelId);
+  public async readLogForProcessModel(identity: IIdentity, processModelId: string): Promise<Array<LogEntry>> {
+    return this.loggingRepository.readLogForProcessModel(processModelId);
   }
 
   public async writeLogForProcessModel(correlationId: string,
