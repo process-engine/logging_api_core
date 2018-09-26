@@ -27,19 +27,25 @@ export class LoggingApiService implements ILoggingApi {
 
   public async writeLogForProcessModel(correlationId: string,
                                        processModelId: string,
+                                       processInstanceId: string,
                                        logLevel: LogLevel,
                                        message: string,
                                        timestamp: Date): Promise<void> {
-    await this.loggingRepository.writeLogForProcessModel(correlationId, processModelId, logLevel, message, timestamp);
+    await this
+      .loggingRepository
+      .writeLogForProcessModel(correlationId, processModelId, processInstanceId, logLevel, message, timestamp);
   }
 
   public async writeLogForFlowNode(correlationId: string,
                                    processModelId: string,
+                                   processInstanceId: string,
                                    flowNodeInstanceId: string,
                                    flowNodeId: string,
                                    logLevel: LogLevel,
                                    message: string,
                                    timestamp: Date): Promise<void> {
-    await this.loggingRepository.writeLogForFlowNode(correlationId, processModelId, flowNodeInstanceId, flowNodeId, logLevel, message, timestamp);
+    await this
+      .loggingRepository
+      .writeLogForFlowNode(correlationId, processModelId, processInstanceId, flowNodeInstanceId, flowNodeId, logLevel, message, timestamp);
   }
 }
