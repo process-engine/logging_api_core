@@ -1,6 +1,6 @@
 {
   "name": "@process-engine/logging_api_core",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Contains all the core components for the logging api. ",
   "main": "dist/commonjs/index.js",
   "typings": "dist/index.d.ts",
@@ -19,7 +19,6 @@
   },
   "homepage": "https://github.com/process-engine/logging_api_core#readme",
   "dependencies": {
-    "@essential-projects/iam_contracts": "~3.2.0",
     "@process-engine/logging_api_contracts": "~1.0.0",
     "moment": "2.22.2"
   },
